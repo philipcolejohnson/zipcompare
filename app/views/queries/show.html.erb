@@ -4,7 +4,30 @@
 
 
   <div class="row">
-    <%= render partial: "zips/zip", locals: { zip: @query.zip1 } %>
+    <%= render partial: "zips/zip", locals: { api: @api1 } %>
 
-    <%= render partial: "zips/zip", locals: { zip: @query.zip2 } %>
+    <%= render partial: "zips/zip", locals: { api: @api2 } %>
   </div>
+
+<hr class="featurette-divider">
+
+<div class="col-md-4 col-md-offset-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Emergency calls</h3>
+    </div>
+    <div class="panel-body">
+      <% @api1.emergency_calls.each do |call| %>
+            <%= call["category"] %>: <%= call["incidents"] %></br>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h4 style="font-family: 'Paytone One', sans-serif;">Next Demolition on <%= @api1.next_demo["demolish_by_date"] %>!</h4><br>
+    <h5>Location</h5><br>
+    <iframe height="400" width="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=<%=  @api1.next_demo["location"]["latitude"] + "," + @api1.next_demo["location"]["longitude"] %>&zoom=18&key=AIzaSyAwhD1JHhy6cvNNfd46avtwF4VODkGdA3A" allowfullscreen></iframe>
+  </div>
+</div>

@@ -4,9 +4,8 @@ class QueriesController < ApplicationController
 
   def show
     @query = Query.find(params[:id])
-    api = ZipAPI.new
-    pp api.dollar_sales(@query.zip1).first["dollar_homes"].to_i
-    pp api.dollar_sales(@query.zip2).first["dollar_homes"].to_i
+    @api1 = ZipAPI.new(@query.zip1)
+    @api2 = ZipAPI.new(@query.zip2)
   end
 
   def new
