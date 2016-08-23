@@ -1,0 +1,10 @@
+<%= render "shared/nav" %>
+
+<%= render "shared/map" %>
+
+
+  <div class="row">
+    <%= render partial: "zips/zip", locals: { zip: @query.zip1 } %>
+
+    <%= render partial: "zips/zip", locals: { zip: @query.zip2 } %>
+  </div>

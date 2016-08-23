@@ -1,0 +1,35 @@
+<div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h1 class="masthead-brand"><a class="navbar-brand" href="#" style="font-family: 'Paytone One', sans-serif; font-size: 30px">ZiPCoMP</a></h1>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Compare two zips.</h1>
+            <p class="lead">Discover information about their schools, their safety, their hospitals, and more.</p>
+            <p class="lead">
+              <%= simple_form_for @query, wrapper: :inline_form, html: { class: 'form-inline' } do |f| %>
+                <%= f.error_notification %>
+
+                <%= f.input :zip1, placeholder: 'First Zip Code' %>
+
+                <%= f.input :zip2, placeholder: 'Second Zip Code' %>
+                <p class="lead">
+                <%= f.button :submit, 'Compare!', class: 'btn btn-lg btn-default' %></p>
+              <% end %>
+            </p>
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
